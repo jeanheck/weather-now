@@ -125,32 +125,37 @@ import { readFromCache, writeToCache } from '@/cache/cache';
           this.error = false;
           this.success = true;
         } else {
-          await this.getOpenWeatherMapData()
-            .then(({ data }: AxiosResponse) => {
-              this.city = new City(
-                data.name,
-                data.sys.country,
-                Math.floor(data.main.temp),
-                data.main.humidity,
-                data.main.pressure,
-                moment(new Date()).format('hh:mm:ss A'),
-              );
-
-              writeToCache(this.cityName, this.city);
-
-              this.loading = false;
-              this.error = false;
-              this.success = true;
-            })
-            .catch((error: AxiosError) => {
-              console.log('error > ', error);
-
-              this.loading = false;
-              this.error = true;
-              this.success = false;
-            });
+          this.requestCityData();
         }
+      } else {
+        this.requestCityData();
       }
+    },
+    async requestCityData() {
+      await this.getOpenWeatherMapData()
+        .then(({ data }: AxiosResponse) => {
+          this.city = new City(
+            data.name,
+            data.sys.country,
+            Math.floor(data.main.temp),
+            data.main.humidity,
+            data.main.pressure,
+            moment(new Date()).format('hh:mm:ss A'),
+          );
+
+          writeToCache(this.cityName, this.city);
+
+          this.loading = false;
+          this.error = false;
+          this.success = true;
+        })
+        .catch((error: AxiosError) => {
+          console.log('error > ', error);
+
+          this.loading = false;
+          this.error = true;
+          this.success = false;
+        });
     },
   },
 })

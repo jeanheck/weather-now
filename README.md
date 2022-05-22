@@ -1,5 +1,12 @@
 # weather-now
 
+## Install Node
+https://nodejs.org/en/download/
+(Install one of these versions: 12.22.0 OR 14.17.0 OR >=16.0.0)
+
+## Install Yarn
+https://classic.yarnpkg.com/lang/en/docs/install/
+
 ## Install Vue-cli
 ```
 yarn global add @vue/cli
