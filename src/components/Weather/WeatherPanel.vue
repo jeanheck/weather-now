@@ -1,8 +1,8 @@
 <template>
   <div id="weather-panel">
     <WeatherCity :cityName="'nuuk'"/>
-    <!-- <WeatherCity :cityName="'urubici'"/>
-    <WeatherCity :cityName="'nairobi'"/> -->
+    <WeatherCity :cityName="'urubici'"/>
+    <WeatherCity :cityName="'nairobi'"/>
   </div>
 </template>
 
