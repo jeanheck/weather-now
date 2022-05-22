@@ -80,7 +80,8 @@ import { readFromCache, writeToCache } from '@/cache/cache';
       loading: true,
       error: false,
       success: false,
-      oneMinute: 600000,
+      tenMinutes: 600000,
+      thirtyMinutes: 30000,
     };
   },
   mounted() {
@@ -88,7 +89,7 @@ import { readFromCache, writeToCache } from '@/cache/cache';
 
     setInterval(() => {
       this.getCityData();
-    }, this.oneMinute);
+    }, this.thirtyMinutes);
   },
   methods: {
     getOpenWeatherMapData() {
@@ -116,7 +117,7 @@ import { readFromCache, writeToCache } from '@/cache/cache';
 
         console.log('difference > ', difference);
 
-        if (difference < this.oneMinute) {
+        if (difference < this.tenMinutes) {
           console.log('getting from cache...');
 
           this.city = cachedCityData.city;
