@@ -17,6 +17,12 @@ yarn global add @vue/cli
 yarn install
 ```
 
+## Create a .env file in the root of the project with that content:
+```
+VUE_APP_APPID=your_open_weather_map_api_key
+```
+Sign in at https://openweathermap.org, and get your api key at https://home.openweathermap.org/api_keys
+
 ### Compiles and hot-reloads for development
 ```
 yarn serve
