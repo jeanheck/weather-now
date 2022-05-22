@@ -1,5 +1,10 @@
 # weather-now
 
+## Install Vue-cli
+```
+yarn global add @vue/cli
+```
+
 ## Project setup
 ```
 yarn install
